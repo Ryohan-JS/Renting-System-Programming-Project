@@ -1,0 +1,84 @@
+print("===================================================")
+print(" HOTEL ROOM RENTING SYSTEM")
+print("===================================================")
+
+print("\n********** AVAILABLE ROOMS **********")
+print("1. Single Room - ₱500 per day")
+print(" Good for 1 person")
+print("2. Double Room - ₱800 per day")
+print(" Good for 2 persons")
+print("3. Family Room - ₱1200 per day")
+print(" Good for 4 persons")
+
+customer = input("\nEnter Customer Name: ")
+age = int(input("Enter Age: "))
+guests = int(input("Enter Number of Guests: "))
+
+room_choice = int(input("\nChoose Room (1-3): "))
+
+if room_choice == 1:
+    room = "Single Room"
+    rate = 500
+elif room_choice == 2:
+    room = "Double Room"
+    rate = 800
+elif room_choice == 3:
+    room = "Family Room"
+    rate = 1200
+else:
+    print("Invalid Room Choice!")
+    exit()
+
+check_in = input("Enter Check-in Date (MM/DD/YYYY): ")
+check_out = input("Enter Check-out Date (MM/DD/YYYY): ")
+days = int(input("Enter Number of Days Stayed: "))
+
+total = rate * days
+
+print("\n===================================================")
+print(" BOOKING DETAILS")
+print("===================================================")
+print("Customer Name :", customer)
+print("Age :", age)
+print("Number of Guests:", guests)
+print("Room Type :", room)
+print("Check-in Date :", check_in)
+print("Check-out Date :", check_out)
+print("Days Stayed :", days)
+print("Rate per Day : ₱", rate)
+print("Total Cost : ₱", total)
+
+confirm = input("\nConfirm Booking? (yes/no): ")
+
+if confirm.lower() == "yes":
+    print("\nBooking Confirmed Successfully!")
+else:
+    print("\nBooking Cancelled.")
+    exit()
+
+payment = int(input("\nEnter Payment Amount: ₱"))
+
+if payment >= total:
+    change = payment - total
+    print("\n============== CHECK-OUT ==============")
+    print("Payment Successful")
+    print("Payment Received : ₱", payment)
+    print("Change : ₱", change)
+    print("Room Checked Out Successfully")
+else:
+    balance = total - payment
+    print("\nPayment Failed")
+    print("Remaining Balance: ₱", balance)
+
+print("\n===================================================")
+print(" RECEIPT")
+print("===================================================")
+print("Customer :", customer)
+print("Room :", room)
+print("Guests :", guests)
+print("Check-in :", check_in)
+print("Check-out:", check_out)
+print("Total : ₱", total)
+
+print("\nThank you for choosing our hotel!")
+print("We hope to serve you again.")
